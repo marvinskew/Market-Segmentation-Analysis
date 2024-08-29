@@ -33,8 +33,9 @@ summary_stats=function(x){
   )
 }
 
-out<-data.frame(nClusters= NA, tot_withinss= NA)
 set.seed(123)
+out<-data.frame(nClusters= NA, tot_withinss= NA)
+
 # function to calculate total intra-cluster sum of square 
 intra_ssw_cl <- function(df, vars, k) {
   ssw.totals= kmeans(na.omit(df[, colnames(df) %in% vars]), k, iter.max=100,nstart=100,
@@ -85,8 +86,7 @@ plot(Age_income_tot_ssw$nClusters, Age_income_tot_ssw$tot_withinss,
 cluster_by_Age<-kmeans(na.omit(member_sample[, "Age"]), 4,iter.max=100,nstart=50,algorithm="Lloyd")
 cluster_by_income<-kmeans(na.omit(member_sample[, "avg_income"]), 4,iter.max=100,nstart=50,algorithm="Lloyd")
 cluster_by_residence<-kmeans(na.omit(member_sample[, "Length.Of.Residence"]), 4,iter.max=100,nstart=50,algorithm="Lloyd")
-cluster_by_Age_income<-kmeans(na.omit(member_sample[, c("Age", "avg_income")]), 4,iter.max=100,
-                                                              nstart=50,algorithm="Lloyd")
+cluster_by_Age_income<-kmeans(na.omit(member_sample[, c("Age", "avg_income")]), 4,iter.max=100, nstart=50,algorithm="Lloyd")
 
 member_sample %>%
   dplyr::filter(!is.na(Age))%>%
@@ -189,7 +189,6 @@ elite_summary3= cl_by_income3 %>%
                    Avg_of_ERS.Member.Cost0_3years= mean(ERS.Member.Cost0_3years, na.rm=T)) %>%
   dplyr::select(Avg.Age, Avg.credit_score, Avg.income, Avg.LoR, Avg.Tenure, premier.revenue, basic.revenue, 
                 total_cost, Avg_of_roadside_calls, Avg_of_ERS.Member.Cost0_3years)
-
 
 
 #segmentation by Length of Residence

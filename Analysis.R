@@ -169,16 +169,6 @@ mem.status<- ggplot(member.status, aes(Var1, Freq, fill= Var1)) + geom_bar(stat 
   theme(legend.title=element_blank())
 
 
-print(inc)  
-print(age)
-print(LoR)
-print(creditR)
-print(race)
-print(len.of.tenure)
-print(educatn)
-print(gender)
-print(mem.status)
-print(problms)
 
 
 

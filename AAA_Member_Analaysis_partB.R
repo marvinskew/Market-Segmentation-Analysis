@@ -138,11 +138,6 @@ LoR<- ggplot(LoR.tt, aes(LoR.c1, Freq)) + geom_bar(stat = "identity") +
         panel.grid.major=element_blank(),
         panel.grid.minor=element_blank())
     
-print(inc)  
-print(age)
-print(LoR)
-
-table(member_sample$Income_range)
 
 inc<- ggplot(inc.tt, aes(income.c1, Freq)) + geom_bar(stat = "identity") + 
   xlab(label= "Income Bracket") + ylab("Counts") +
